@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var sentence = EmojiSentence()
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Image("Cookie")
+                .resizable()
+                .scaledToFit()
+                .overlay {
+                    Text(sentence.emoji)
+                        .font(.title3)
+                        .padding(.top, 10)
+                        .buttonStyle(.plain)
+                }
+            Text(sentence.text)
+                .font(.caption)
+                .padding(.top, 20)
         }
-        .padding()
+        .onTapGesture {
+            sentence.next()
+        }
     }
 }
 
