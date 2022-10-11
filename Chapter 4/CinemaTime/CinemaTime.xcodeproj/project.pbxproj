@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F5D934D28F536D800FB2C23 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5D934C28F5362800FB2C23 /* Connectivity.swift */; };
+		9F5D934E28F536DA00FB2C23 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5D934C28F5362800FB2C23 /* Connectivity.swift */; };
 		D258D5DD2637297E00178F43 /* ConnectivityUserInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F435EB26350F3E00EBF172 /* ConnectivityUserInfoKey.swift */; };
 		D2B78A342634B545009E3B39 /* CinemaTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B78A332634B545009E3B39 /* CinemaTimeApp.swift */; };
 		D2B78A382634B548009E3B39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B78A372634B548009E3B39 /* Assets.xcassets */; };
@@ -88,6 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9F5D934C28F5362800FB2C23 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		D2B78A302634B545009E3B39 /* CinemaTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B78A332634B545009E3B39 /* CinemaTimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaTimeApp.swift; sourceTree = "<group>"; };
 		D2B78A372634B548009E3B39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 				D2F434FC2634BDE400EBF172 /* MovieListView.swift */,
 				D2F435102634BE7200EBF172 /* PurchaseTicketView.swift */,
 				D2F435EB26350F3E00EBF172 /* ConnectivityUserInfoKey.swift */,
+				9F5D934C28F5362800FB2C23 /* Connectivity.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -374,6 +378,7 @@
 				D2B78A342634B545009E3B39 /* CinemaTimeApp.swift in Sources */,
 				D2F435022634BE0C00EBF172 /* MovieDetailsView.swift in Sources */,
 				D2B78A722634B5CF009E3B39 /* Movie.swift in Sources */,
+				9F5D934D28F536D800FB2C23 /* Connectivity.swift in Sources */,
 				D2F434EF2634BDA600EBF172 /* MovieRow.swift in Sources */,
 				D258D5DD2637297E00178F43 /* ConnectivityUserInfoKey.swift in Sources */,
 				D2F434DF2634BCFE00EBF172 /* TicketOffice.swift in Sources */,
@@ -396,6 +401,7 @@
 				D2F434E42634BD7200EBF172 /* TicketOffice.swift in Sources */,
 				D2F435752634D79F00EBF172 /* MovieDetailsView.swift in Sources */,
 				D2F435EC26350F3E00EBF172 /* ConnectivityUserInfoKey.swift in Sources */,
+				9F5D934E28F536DA00FB2C23 /* Connectivity.swift in Sources */,
 				D2F4351E2634D6C600EBF172 /* PurchasedTicketsListView.swift in Sources */,
 				D2F4357E2634D7C000EBF172 /* PurchaseTicketView.swift in Sources */,
 				D2B78A552634B549009E3B39 /* ComplicationController.swift in Sources */,
