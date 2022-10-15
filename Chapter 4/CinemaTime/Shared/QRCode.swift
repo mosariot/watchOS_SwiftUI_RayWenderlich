@@ -1,7 +1,10 @@
 import SwiftUI
+#if canImport(CoreImage)
 import CoreImage.CIFilterBuiltins
+#endif
 
 enum QRCode {
+#if canImport(CoreImage)
   static func generate(movie: Movie, size: CGSize) -> UIImage? {
     let filter = CIFilter.qrCodeGenerator()
     filter.message = Data("\(movie.title) @ \(movie.time)".utf8)
@@ -16,7 +19,13 @@ enum QRCode {
         return UIImage(cgImage: cgImage)
       }
     }
-
     return nil
   }
+#endif
+#if os(watchOS)
+  static func url(for movieID: Int) -> URL {
+    let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    return documents.appendingPathComponent("\(movieID).png")
+  }
+#endif
 }

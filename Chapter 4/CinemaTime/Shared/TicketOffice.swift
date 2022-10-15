@@ -72,12 +72,33 @@ final class TicketOffice: NSObject, ObservableObject {
   }
 
   func delete(at offsets: IndexSet) {
+#if os(watchOS)
+    offsets
+      .map { purchased[$0].id }
+      .forEach { id in
+        let url = QRCode.url(for: id)
+        try? FileManager.default.removeItem(at: url)
+      }
+#endif
     purchased.remove(atOffsets: offsets)
     updateCompanion()
   }
   
   private func updateCompanion() {
     let ids = purchased.map { $0.id }
-    Connectivity.shared.send(movieIds: ids)
+    var wantedQrCodes: [Int] = []
+#if os(watchOS)
+    wantedQrCodes = ids.filter { id in
+      let url = QRCode.url(for: id)
+      return !FileManager.default.fileExists(atPath: url.path)
+    }
+#endif
+    Connectivity.shared.send(
+      movieIds: ids,
+      delivery: .highPriority,
+      wantedQrCodes: wantedQrCodes,
+      errorHandler: {
+      print($0.localizedDescription)
+    })
   }
 }

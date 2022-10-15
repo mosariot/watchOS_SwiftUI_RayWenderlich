@@ -26,6 +26,17 @@ struct Movie: Identifiable, Equatable {
       director: "Charles Barton",
       actors: "Bud Abbot, Lou Costello")
   }
+  
+#if os(watchOS)
+  func qrCodeImage() -> Image? {
+    let path = QRCode.url(for: id).absoluteString
+    if let image = UIImage(contentsOfFile: path) {
+      return Image(uiImage: image)
+    } else {
+      return Image(systemName: "xmark.circle")
+    }
+  }
+#endif
 }
 
 extension Movie: Decodable {

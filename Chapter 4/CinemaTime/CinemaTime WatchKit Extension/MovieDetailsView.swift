@@ -9,6 +9,8 @@ struct MovieDetailsView: View {
 
       if !TicketOffice.shared.isPurchased(movie) {
         PurchaseTicketView(movie: movie)
+      } else {
+        movie.qrCodeImage()
       }
     }
   }
