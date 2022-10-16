@@ -96,9 +96,7 @@ final class TicketOffice: NSObject, ObservableObject {
     Connectivity.shared.send(
       movieIds: ids,
       delivery: .highPriority,
-      wantedQrCodes: wantedQrCodes,
-      errorHandler: {
-      print($0.localizedDescription)
-    })
+      wantedQrCodes: wantedQrCodes
+    )
   }
 }
