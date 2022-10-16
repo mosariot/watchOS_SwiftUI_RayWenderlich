@@ -3,13 +3,15 @@ import SwiftUI
 struct ScheduleView: View {
   @EnvironmentObject private var season: Season
   @Binding var selectedMatchId: Match.ID?
+  let snapshotHandler: (() -> Void)?
 
   var body: some View {
     List {
       ForEach(season.upcomingMatches) { match in
         NavigationLink(
           destination: ScheduleDetailView(
-            match: match
+            match: match,
+            snapshotHandler: snapshotHandler
           ),
           tag: match.id,
           selection: $selectedMatchId
@@ -45,6 +47,6 @@ struct ScheduleView: View {
 
 struct ScheduleView_Previews: PreviewProvider {
   static var previews: some View {
-    ScheduleView(selectedMatchId: .constant(nil))
+    ScheduleView(selectedMatchId: .constant(nil), snapshotHandler: nil)
   }
 }

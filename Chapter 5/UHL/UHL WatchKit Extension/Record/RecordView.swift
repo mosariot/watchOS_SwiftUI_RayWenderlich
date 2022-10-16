@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RecordView: View {
   @EnvironmentObject private var season: Season
+  let snapshotHandler: (() -> Void)?
 
   var body: some View {
     List(season.pastMatches().reversed()) {
@@ -9,11 +10,14 @@ struct RecordView: View {
     }
     .listStyle(.carousel)
     .navigationBarTitle("Scores")
+    .task {
+      snapshotHandler?()
+    }
   }
 }
 
 struct RecordView_Previews: PreviewProvider {
   static var previews: some View {
-    RecordView()
+    RecordView(snapshotHandler: nil)
   }
 }

@@ -3,6 +3,8 @@ import Combine
 
 struct ContentView: View {
   @EnvironmentObject private var season: Season
+  @State private var snapshotHandler: (() -> Void)?
+  private let pushViewForSnapshotPublisher = NotificationCenter.default.publisher(for: .pushViewForSnapshot)
   
   public enum Destination {
     case record
@@ -19,7 +21,8 @@ struct ContentView: View {
       if let match = season.nextMatch {
         NavigationLink(
           destination: ScheduleView(
-            selectedMatchId: $selectedMatchId
+            selectedMatchId: $selectedMatchId,
+            snapshotHandler: snapshotHandler
           ),
           isActive: isDestinationActive(.schedule)
         ) {
@@ -43,7 +46,7 @@ struct ContentView: View {
       }
 
       NavigationLink(
-        destination: RecordView(),
+        destination: RecordView(snapshotHandler: snapshotHandler),
         isActive: isDestinationActive(.record)
       ) {
         HStack {
@@ -54,6 +57,9 @@ struct ContentView: View {
         }
       }
     }
+    .onReceive(pushViewForSnapshotPublisher) {
+      pushViewForSnapshot($0)
+    }
   }
   
   private func isDestinationActive(_ destination: Destination) -> Binding<Bool> {
@@ -61,6 +67,13 @@ struct ContentView: View {
         get: { activeDestination == destination },
         set: { activeDestination = $0 ? destination : nil }
       )
+  }
+  
+  private func pushViewForSnapshot(_ notification: Notification) {
+    guard let info = try? SnapshotUserInfo.from(notification: notification) else { return }
+    snapshotHandler = info.handler
+    selectedMatchId = info.matchId
+    activeDestination = info.destination
   }
 }
 

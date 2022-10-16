@@ -48,7 +48,7 @@ class Season: NSObject, ObservableObject {
       .shuffled()
       .map { index, team in
         date = Calendar.current.date(
-          bySettingHour: Int.random(in: 18 ... 20),
+          bySettingHour: Int.random(in: 10 ... 12),
           minute: Bool.random() ? 0 : 30,
           second: 0,
           of: date)!

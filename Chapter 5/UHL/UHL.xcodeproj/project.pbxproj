@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F94104C28FC52DC003C2B32 /* SnapshotUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94104B28FC52DC003C2B32 /* SnapshotUserInfo.swift */; };
 		D20A1BA126914C3400A1E1AB /* Notification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20A1BA026914C3400A1E1AB /* Notification.Name+Extension.swift */; };
 		D2D288F725A278A100FB7306 /* UHL WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D2D288F625A278A100FB7306 /* UHL WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D2D288FC25A278A400FB7306 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2D288FB25A278A400FB7306 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9F94104B28FC52DC003C2B32 /* SnapshotUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotUserInfo.swift; sourceTree = "<group>"; };
 		D20A1BA026914C3400A1E1AB /* Notification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+Extension.swift"; sourceTree = "<group>"; };
 		D2D288F225A278A100FB7306 /* UHL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UHL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2D288F625A278A100FB7306 /* UHL WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UHL WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				D2D2897425A2AA0D00FB7306 /* ExtensionDelegate.swift */,
 				D20A1BA026914C3400A1E1AB /* Notification.Name+Extension.swift */,
 				D2D2890925A278A400FB7306 /* UHLApp.swift */,
+				9F94104B28FC52DC003C2B32 /* SnapshotUserInfo.swift */,
 				D2D2890D25A278A500FB7306 /* Assets.xcassets */,
 				D2D2896425A2A5D900FB7306 /* Model */,
 				D2D2890F25A278A500FB7306 /* Preview Content */,
@@ -302,6 +305,7 @@
 				D2D2892925A27C5D00FB7306 /* Match.swift in Sources */,
 				D2D2890A25A278A400FB7306 /* UHLApp.swift in Sources */,
 				D2D2893625A27ECE00FB7306 /* MatchResult.swift in Sources */,
+				9F94104C28FC52DC003C2B32 /* SnapshotUserInfo.swift in Sources */,
 				D20A1BA126914C3400A1E1AB /* Notification.Name+Extension.swift in Sources */,
 				D2D2894925A2922600FB7306 /* ScheduleView.swift in Sources */,
 				D2D2895325A296C800FB7306 /* RecordRow.swift in Sources */,

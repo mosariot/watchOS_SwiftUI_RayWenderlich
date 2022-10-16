@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ScheduleDetailView: View {
   let match: Match
+  let snapshotHandler: (() -> Void)?
 
   var body: some View {
     VStack {
@@ -29,12 +30,15 @@ struct ScheduleDetailView: View {
         }
       }
     }
+    .task {
+      snapshotHandler?()
+    }
   }
 }
 
 struct ScheduleDetailView_Previews: PreviewProvider {
   static var previews: some View {
     // swiftlint:disable:next force_unwrapping
-    ScheduleDetailView(match: Season.shared.nextMatch!)
+    ScheduleDetailView(match: Season.shared.nextMatch!, snapshotHandler: nil)
   }
 }
