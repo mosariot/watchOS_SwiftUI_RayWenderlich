@@ -13,7 +13,7 @@ struct PawsomeApp: App {
 
     WKNotificationScene(
       controller: NotificationController.self,
-      category: "myCategory"
+      category: LocalNotifications.categoryIdentifier
     )
   }
 }

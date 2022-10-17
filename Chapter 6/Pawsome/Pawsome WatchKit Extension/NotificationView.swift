@@ -1,13 +1,25 @@
 import SwiftUI
 
 struct NotificationView: View {
+  let message: String
+  let image: Image
+  
   var body: some View {
-    Text("Hello, World!")
+    ScrollView {
+      Text(message)
+        .font(.headline)
+      image
+        .resizable()
+        .scaledToFit()
+    }
   }
 }
 
 struct NotificationView_Previews: PreviewProvider {
   static var previews: some View {
-    NotificationView()
+    NotificationView(
+      message: "Awww",
+      image: Image("cat\(Int.random(in: 1...20))")
+    )
   }
 }
