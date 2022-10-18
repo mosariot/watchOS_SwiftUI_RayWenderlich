@@ -6,6 +6,15 @@ final class RemoteNotificationController: WKUserNotificationHostingController<Re
   static let categoryIdentifier = "lorem"
 
   private var model: RemoteNotificationModel!
+  
+  override class var isInteractive: Bool { true }
+  
+  override class var sashColor: Color? {
+    Color(red: 0, green: 156/255, blue: 83/255)
+  }
+  override class var titleColor: Color? { Color.purple }
+  override class var subtitleColor: Color? { Color.orange }
+  override class var wantsSashBlur: Bool { true }
 
   override var body: RemoteNotificationView {
     return RemoteNotificationView(model: model)
