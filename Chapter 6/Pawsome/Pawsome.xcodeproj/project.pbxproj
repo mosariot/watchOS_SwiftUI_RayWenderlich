@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F94104E28FF1051003C2B32 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94104D28FF1051003C2B32 /* ExtensionDelegate.swift */; };
 		D253DB482675783A002D63DF /* Pawsome WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D253DB472675783A002D63DF /* Pawsome WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D253DB4D2675783C002D63DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D253DB4C2675783C002D63DF /* Assets.xcassets */; };
 		D253DB582675783C002D63DF /* PawsomeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253DB572675783C002D63DF /* PawsomeApp.swift */; };
@@ -48,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9F94104D28FF1051003C2B32 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		9F94104F28FF106B003C2B32 /* Pawsome WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pawsome WatchKit App.entitlements"; sourceTree = "<group>"; };
 		D253DB432675783A002D63DF /* Pawsome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pawsome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D253DB472675783A002D63DF /* Pawsome WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pawsome WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D253DB4C2675783C002D63DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 		D253DB4B2675783A002D63DF /* Pawsome WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
+				9F94104F28FF106B003C2B32 /* Pawsome WatchKit App.entitlements */,
 				D253DB7626757ECE002D63DF /* Pawsome-WatchKit-App-Info.plist */,
 				D253DB4C2675783C002D63DF /* Assets.xcassets */,
 			);
@@ -119,6 +123,7 @@
 				D253DB5B2675783C002D63DF /* NotificationController.swift */,
 				D253DB5D2675783C002D63DF /* NotificationView.swift */,
 				D253DB572675783C002D63DF /* PawsomeApp.swift */,
+				9F94104D28FF1051003C2B32 /* ExtensionDelegate.swift */,
 				D253DB612675783D002D63DF /* Assets.xcassets */,
 				D253DB632675783D002D63DF /* Preview Content */,
 				D253DB7B26757FD5002D63DF /* Remote Notifications */,
@@ -245,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F94104E28FF1051003C2B32 /* ExtensionDelegate.swift in Sources */,
 				D253DB5C2675783C002D63DF /* NotificationController.swift in Sources */,
 				D253DB8326757FD5002D63DF /* RemoteNotificationView.swift in Sources */,
 				D253DB7A26757F6D002D63DF /* LocalNotifications.swift in Sources */,
@@ -389,6 +395,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Pawsome WatchKit App/Pawsome WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R89YUVSKU6;
@@ -425,6 +432,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Pawsome WatchKit App/Pawsome WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R89YUVSKU6;
