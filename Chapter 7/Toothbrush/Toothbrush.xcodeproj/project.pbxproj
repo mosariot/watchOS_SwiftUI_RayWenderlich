@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F94105228FF137F003C2B32 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F94105128FF137F003C2B32 /* ContentModel.swift */; };
 		D214633D26E537B400374CC6 /* GetReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D214633C26E537B400374CC6 /* GetReadyView.swift */; };
 		D28C310526E42CB7003FFC7B /* Toothbrush WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D28C310426E42CB7003FFC7B /* Toothbrush WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D28C310A26E42CB8003FFC7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28C310926E42CB8003FFC7B /* Assets.xcassets */; };
@@ -42,6 +43,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9F94105028FF134F003C2B32 /* Toothbrush-WatchKit-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Toothbrush-WatchKit-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		9F94105128FF137F003C2B32 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		D214633C26E537B400374CC6 /* GetReadyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetReadyView.swift; sourceTree = "<group>"; };
 		D28C310026E42CB6003FFC7B /* Toothbrush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toothbrush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28C310426E42CB7003FFC7B /* Toothbrush WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toothbrush WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +91,7 @@
 		D28C310826E42CB7003FFC7B /* Toothbrush WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
+				9F94105028FF134F003C2B32 /* Toothbrush-WatchKit-App-Info.plist */,
 				D28C310926E42CB8003FFC7B /* Assets.xcassets */,
 			);
 			path = "Toothbrush WatchKit App";
@@ -99,6 +103,7 @@
 				D28C311F26E42CBA003FFC7B /* Info.plist */,
 				D28C311826E42CB9003FFC7B /* ComplicationController.swift */,
 				D28C311426E42CB8003FFC7B /* ContentView.swift */,
+				9F94105128FF137F003C2B32 /* ContentModel.swift */,
 				D214633C26E537B400374CC6 /* GetReadyView.swift */,
 				D28C311626E42CB9003FFC7B /* ToothbrushApp.swift */,
 				D28C311A26E42CB9003FFC7B /* Assets.xcassets */,
@@ -238,6 +243,7 @@
 			files = (
 				D28C311526E42CB9003FFC7B /* ContentView.swift in Sources */,
 				D28C311726E42CB9003FFC7B /* ToothbrushApp.swift in Sources */,
+				9F94105228FF137F003C2B32 /* ContentModel.swift in Sources */,
 				D214633D26E537B400374CC6 /* GetReadyView.swift in Sources */,
 				D28C311926E42CB9003FFC7B /* ComplicationController.swift in Sources */,
 			);
@@ -379,6 +385,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R89YUVSKU6;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Toothbrush-WatchKit-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Toothbrush WatchKit App";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = Toothbrush_WatchKit_App.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -411,6 +418,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R89YUVSKU6;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Toothbrush-WatchKit-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Toothbrush WatchKit App";
 				INFOPLIST_KEY_CLKComplicationPrincipalClass = Toothbrush_WatchKit_App.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
