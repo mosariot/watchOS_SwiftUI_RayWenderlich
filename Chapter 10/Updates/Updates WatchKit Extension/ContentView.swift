@@ -1,9 +1,12 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State private var downloader = UrlDownloader(identifier: "ContentView")
+  
   var body: some View {
-    Text("Hello, World!")
-      .padding()
+    Button("Download") {
+      downloader.schedule(firstTime: true)
+    }
   }
 }
 
