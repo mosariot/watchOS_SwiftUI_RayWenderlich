@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F7CBEFA2906EDA30059D34D /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 9F7CBEF82906ED9E0059D34D /* SwiftUICharts */; };
+		9F7CBEFD2906EEC10059D34D /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7CBEFC2906EEC10059D34D /* HealthStore.swift */; };
+		9F7CBEFF2906FD060059D34D /* WaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7CBEFE2906FD060059D34D /* WaterView.swift */; };
 		D28CD90326EEA5AD00A1DE0F /* Health WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D28CD90226EEA5AD00A1DE0F /* Health WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D28CD90826EEA5AE00A1DE0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28CD90726EEA5AE00A1DE0F /* Assets.xcassets */; };
 		D28CD91326EEA5AF00A1DE0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CD91226EEA5AF00A1DE0F /* ContentView.swift */; };
@@ -50,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		9F7CBEF92906ED9E0059D34D /* Health-WatchKit-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Health-WatchKit-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		9F7CBEFB2906EE960059D34D /* Health WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Health WatchKit App.entitlements"; sourceTree = "<group>"; };
+		9F7CBEFC2906EEC10059D34D /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		9F7CBEFE2906FD060059D34D /* WaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterView.swift; sourceTree = "<group>"; };
 		D28CD8FE26EEA5AC00A1DE0F /* Health.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Health.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28CD90226EEA5AD00A1DE0F /* Health WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28CD90726EEA5AE00A1DE0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F7CBEFA2906EDA30059D34D /* SwiftUICharts in Frameworks */,
 				D28CD93926EEA68600A1DE0F /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +112,7 @@
 		D28CD90626EEA5AD00A1DE0F /* Health WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
+				9F7CBEFB2906EE960059D34D /* Health WatchKit App.entitlements */,
 				9F7CBEF92906ED9E0059D34D /* Health-WatchKit-App-Info.plist */,
 				D28CD90726EEA5AE00A1DE0F /* Assets.xcassets */,
 			);
@@ -119,6 +127,7 @@
 				D28CD91226EEA5AF00A1DE0F /* ContentView.swift */,
 				D28CD93426EEA64200A1DE0F /* GetReadyView.swift */,
 				D28CD91426EEA5AF00A1DE0F /* HealthApp.swift */,
+				9F7CBEFC2906EEC10059D34D /* HealthStore.swift */,
 				D28CD91826EEA5B000A1DE0F /* Assets.xcassets */,
 				D28CD91A26EEA5B000A1DE0F /* Preview Content */,
 				D28CD92B26EEA5C000A1DE0F /* Teeth */,
@@ -151,6 +160,7 @@
 				D28CD94A26EEF56900A1DE0F /* BarChart.swift */,
 				D28CD94626EED4BA00A1DE0F /* LogWaterButton.swift */,
 				D28CD94C26EEF58100A1DE0F /* WaterGraphData.swift */,
+				9F7CBEFE2906FD060059D34D /* WaterView.swift */,
 			);
 			path = Water;
 			sourceTree = "<group>";
@@ -265,12 +275,14 @@
 				D28CD94726EED4BA00A1DE0F /* LogWaterButton.swift in Sources */,
 				D28CD94B26EEF56900A1DE0F /* BarChart.swift in Sources */,
 				D28CD93326EEA60D00A1DE0F /* BrushingTimerView.swift in Sources */,
+				9F7CBEFF2906FD060059D34D /* WaterView.swift in Sources */,
 				D28CD94326EEC72100A1DE0F /* Notification.Name+Extension.swift in Sources */,
 				D28CD93526EEA64200A1DE0F /* GetReadyView.swift in Sources */,
 				D28CD91326EEA5AF00A1DE0F /* ContentView.swift in Sources */,
 				D28CD93126EEA5F100A1DE0F /* BrushingModel.swift in Sources */,
 				D28CD91526EEA5AF00A1DE0F /* HealthApp.swift in Sources */,
 				D28CD91726EEA5AF00A1DE0F /* ComplicationController.swift in Sources */,
+				9F7CBEFD2906EEC10059D34D /* HealthStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,13 +418,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Health WatchKit App/Health WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R89YUVSKU6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Health-WatchKit-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Health WatchKit App";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = Health_WatchKit_App.ComplicationController;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Tracks brushing and water consumption";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Bodyweight helps determine optimal water intake requirements";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;
@@ -439,13 +454,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Health WatchKit App/Health WatchKit App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R89YUVSKU6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Health-WatchKit-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Health WatchKit App";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = Health_WatchKit_App.ComplicationController;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Tracks brushing and water consumption";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Bodyweight helps determine optimal water intake requirements";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKWatchOnly = YES;

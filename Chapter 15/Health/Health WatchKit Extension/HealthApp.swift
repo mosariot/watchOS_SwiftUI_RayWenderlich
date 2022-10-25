@@ -9,6 +9,9 @@ struct HealthApp: App {
             NavigationView {
                 ContentView()
             }
+            .task {
+              _ = HealthStore.shared
+            }
         }
     }
 }

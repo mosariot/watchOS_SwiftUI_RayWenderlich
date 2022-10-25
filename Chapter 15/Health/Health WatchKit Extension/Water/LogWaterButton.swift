@@ -27,6 +27,17 @@ struct LogWaterButton: View {
   }
 
   private func tapped() {
+    let unit: HKUnit
+    let value: Double
+    if Locale.current.usesMetricSystem {
+      unit = .literUnit(with: .milli)
+      value = size == .small ? 250 : 500
+    } else {
+      unit = .fluidOunceUS()
+      value = size == .small ? 8 : 16
+    }
+    let quantity = HKQuantity(unit: unit, doubleValue: value)
+    onTap(quantity)
   }
 }
 
