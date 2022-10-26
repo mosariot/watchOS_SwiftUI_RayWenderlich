@@ -7,6 +7,7 @@ final class HealthStore {
   private let brushingCategoryType = HKCategoryType.categoryType(forIdentifier: .toothbrushingEvent)!
   private let waterQuantityType = HKQuantityType.quantityType(forIdentifier: .dietaryWater)!
   private let bodyMassType = HKQuantityType.quantityType(forIdentifier: .bodyMass)!
+  private var preferredWaterUnit = HKUnit.fluidOunceUS()
   
   var isWaterEnabled: Bool {
     let status = healthStore?.authorizationStatus(for: waterQuantityType)
@@ -24,6 +25,8 @@ final class HealthStore {
       await MainActor.run {
         NotificationCenter.default.post(name: .healthStoreLoaded, object: nil)
       }
+      guard let types = try? await healthStore!.preferredUnits(for: [waterQuantityType]) else { return }
+      preferredWaterUnit = types[waterQuantityType]!
     }
   }
   
@@ -58,6 +61,29 @@ final class HealthStore {
     let goal = mass / 2.0
     let percentComplete = ounces / goal
     return (measurement, percentComplete)
+  }
+  
+  func waterConsumptionGraphData(completion: @escaping ([WaterGraphData]?) -> Void) throws {
+    guard let healthStore else {
+      throw HKError(.errorHealthDataUnavailable)
+    }
+    var start = Calendar.current.date(byAdding: .day, value: -6, to: Date.now())!
+    start = Calendar.current.startOfDay(for: start)
+    let predicate = HKQuery.predicateForSamples(withStart: start, end: nil, options: strictStartDate)
+    let query = HKStatisticsCollectionQuery(
+      quantityType: waterQuantityType,
+      quantitySamplePredicate: predicate,
+      options: .cumulativeSum,
+      anchorDate: start,
+      intervalComponents: .init(day: 1)
+    )
+    query.initialResulHandler = { _, results, _ in
+      self.updateGraph(start: start, results: results, completion: completion)
+    }
+    query.statisticsUpdateHandler = { _, _, results, _ in
+      self.updateGraph(start: start, results: results, completion: completion)
+    }
+    healthStore.execute(query)
   }
   
   private func currentBodyMass() async throws -> Double? {
@@ -96,6 +122,24 @@ final class HealthStore {
       }
       healthStore.execute(query)
     }
+  }
+  
+  private func updateGraph(start: Date, results: HKStatisticsCollection?, completion: @escaping ([WaterGraphData]?) -> Void) {
+    guard let results else { return }
+    var statsForDay: [Date: WaterGraphData] = [:]
+    for i in 0...6 {
+      let day = Calendar.current.date(byAdding: .day, value: i, to: start)!
+      statsForDay[day] = WaterGraphData(for: day)
+    }
+    results.enumerateStatistics(from: start, to: Date.now) { statistics, _ in
+      var value = 0.0
+      if let sum = statistics.sumQuantity() {
+        value = sum.doubleValue(for: self.prefferedWaterUnit).rounded(.up)
+      }
+      statsForDay[statistics.startDate]?.value = value
+    }
+    let statistics = statsForDay.sorted { $0.key < $1.key }.map { $0.value }
+    completion(statistics)
   }
   
   private func save(_ sample: HKSample) async throws {
