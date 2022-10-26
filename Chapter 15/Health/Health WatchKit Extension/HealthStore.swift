@@ -50,6 +50,16 @@ final class HealthStore {
     try await save(sample)
   }
   
+  func currentWaterStatus() async throws -> (Measurement<UnitVolume>, Double?) {
+    let (ounces, measurement) = try await drankToday()
+    guard let mass = try? await currentBodyMass() else {
+      return (measurement, nil)
+    }
+    let goal = mass / 2.0
+    let percentComplete = ounces / goal
+    return (measurement, percentComplete)
+  }
+  
   private func currentBodyMass() async throws -> Double? {
     guard let healthStore else {
       throw HKError(.errorHealthDataUnavailable)
@@ -63,6 +73,26 @@ final class HealthStore {
         }
         let pounds = latest.quantity.doubleValue(for: .pound())
         continuation.resume(returning: pounds)
+      }
+      healthStore.execute(query)
+    }
+  }
+  
+  private func drankToday() async throws -> (ounces: Double, amount: Measurement<UnitVolume>) {
+    guard let healthStore else {
+      throw HKError(.errorHealthDataUnavailable)
+    }
+    let start = Calendar.current.startOfDay(for: Date.now)
+    let predicate = HKQuery.predicateForSamples(withStart: start, end: Date.now, options: .strictStartDate)
+    return await withCheckedContinuation { continuation in
+      let query = HKStatisticsQuery(quantityType: waterQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, statistics, _ in
+        guard let quantity = statistics?.sumQuantity() else {
+          continuation.resume(returning: (0, .init(value: 0, unit: .liters)))
+          return
+        }
+        let ounces = quantity.doubleValue(for: .fluidOunceUS())
+        let liters = quantity.doubleValue(for: .liter())
+        continuation.resume(returning: (ounces, .init(value: liters, unit: .liters)))
       }
       healthStore.execute(query)
     }
