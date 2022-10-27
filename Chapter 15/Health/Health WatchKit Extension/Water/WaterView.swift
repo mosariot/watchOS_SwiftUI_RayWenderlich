@@ -9,7 +9,7 @@ struct WaterView: View {
   private let consumedFormat: MeasurementFormatter = {
     var fmt = MeasurementFormatter()
     fmt.unitOptions = .naturalScale
-    return rmt
+    return fmt
   }()
   
   var body: some View {
@@ -64,7 +64,8 @@ struct WaterView: View {
       return
     }
     consumed = consumedFormat.string(from: measurement)
-    self.percent = percent?.formatted(.percent.precision(.fractionLenght(0))) ?? "Unknown"
+    self.percent = percent?.formatted(.percent.precision(.fractionLength(0))) ?? "Unknown"
+  }
 }
 
 struct WaterView_Previews: PreviewProvider {

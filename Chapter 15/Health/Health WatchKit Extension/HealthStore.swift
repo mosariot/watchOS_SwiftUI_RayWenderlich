@@ -67,9 +67,9 @@ final class HealthStore {
     guard let healthStore else {
       throw HKError(.errorHealthDataUnavailable)
     }
-    var start = Calendar.current.date(byAdding: .day, value: -6, to: Date.now())!
+    var start = Calendar.current.date(byAdding: .day, value: -6, to: Date.now)!
     start = Calendar.current.startOfDay(for: start)
-    let predicate = HKQuery.predicateForSamples(withStart: start, end: nil, options: strictStartDate)
+    let predicate = HKQuery.predicateForSamples(withStart: start, end: nil, options: .strictStartDate)
     let query = HKStatisticsCollectionQuery(
       quantityType: waterQuantityType,
       quantitySamplePredicate: predicate,
@@ -77,7 +77,7 @@ final class HealthStore {
       anchorDate: start,
       intervalComponents: .init(day: 1)
     )
-    query.initialResulHandler = { _, results, _ in
+    query.initialResultsHandler = { _, results, _ in
       self.updateGraph(start: start, results: results, completion: completion)
     }
     query.statisticsUpdateHandler = { _, _, results, _ in
@@ -134,7 +134,7 @@ final class HealthStore {
     results.enumerateStatistics(from: start, to: Date.now) { statistics, _ in
       var value = 0.0
       if let sum = statistics.sumQuantity() {
-        value = sum.doubleValue(for: self.prefferedWaterUnit).rounded(.up)
+        value = sum.doubleValue(for: self.preferredWaterUnit).rounded(.up)
       }
       statsForDay[statistics.startDate]?.value = value
     }
